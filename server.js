@@ -12,13 +12,13 @@ import cookieParser from "cookie-parser";
 import cors from "cors";
 
 
-import path from "path";
+//import path from "path";
 
 //import { fileURLToPath } from 'url';
 //import { dirname } from 'path';
 
 // const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.resolve();
+//const __dirname = path.resolve();
 
 // Now you can use __dirname as usual
 // console.log(__dirname);
