@@ -74,7 +74,12 @@ app.use((err, req, res, next) => {
 
 const PORT = process.env.PORT || 8800;
 
-app.listen(PORT, () => {
-    connect();
-    console.log("Backend server is running!");
-});
+// app.listen(PORT, () => {
+//     connect();
+//     console.log("Backend server is running!");
+// });
+connectDB().then(() => {
+    app.listen(PORT, () => {
+        console.log("listening for requests");
+    })
+})
