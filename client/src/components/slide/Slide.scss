@@ -1,0 +1,67 @@
+// .slide {
+//   display: flex;
+//   justify-content: center;
+//   padding: 100px 0px;
+
+//   .container {
+//     width: 1400px;
+
+//     .carousel-prev,
+//     .carousel-next {
+//       width: 50px;
+//       height: 50px;
+//       background-color: rgb(243, 243, 243);
+//       border-radius: 50%;
+//       position: absolute;
+//       top: 0;
+//       bottom: 0;
+//       margin: auto;
+//     }
+
+//   }
+// }
+
+.slide {
+  display: flex;
+  justify-content: center;
+  padding: 100px 0px;
+
+  .container {
+    width: 1400px;
+
+    .carousel-prev,
+    .carousel-next {
+      width: 40px;
+      /* Slightly reduced the width */
+      height: 40px;
+      /* Slightly reduced the height */
+      background-color: #f3f3f3;
+      /* Changed the background color */
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      /* Vertically centered */
+      transform: translateY(-50%);
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: #e0e0e0;
+        /* Darker background color on hover */
+      }
+
+      &.carousel-prev {
+        left: 20px;
+        /* Adjusted the position from the left */
+      }
+
+      &.carousel-next {
+        right: 20px;
+        /* Adjusted the position from the right */
+      }
+    }
+  }
+}
