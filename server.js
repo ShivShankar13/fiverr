@@ -78,7 +78,7 @@ const PORT = process.env.PORT || 8800;
 //     connect();
 //     console.log("Backend server is running!");
 // });
-connectDB().then(() => {
+connect().then(() => {
     app.listen(PORT, () => {
         console.log("listening for requests");
     })
