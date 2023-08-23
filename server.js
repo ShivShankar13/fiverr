@@ -26,20 +26,12 @@ dotenv.config();
 
 const corsOptions = {
     origin: process.env.FRONTEND_DOMAIN,
-  credentials: true,
+    credentials: true,
 };
 
 
 const app = express();
-app.get("*", function (_, res){
-    res.sendFile(path.join(__dirname, "./client/dist/index.html" ), function (err) {
-        console.log(err);
-        res.status(500).send(err);
-        
-    })
-})
-
-
+app.use(cors(corsOptions));
 
 mongoose.set("strictQuery", true);
 
@@ -52,7 +44,7 @@ const connect = async () => {
     }
 };
 
-app.use(cors(corsOptions));
+
 app.use(express.json());
 app.use(cookieParser());
 app.use("/api/auth", authRoute);
