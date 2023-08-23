@@ -1,0 +1,50 @@
+.login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  form {
+    width: 360px;
+    padding: 100px 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    h1 {
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    label {
+      color: #555;
+      font-size: 18px;
+    }
+
+    input,
+    textarea {
+      padding: 15px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+
+    button {
+      border: none;
+      padding: 15px 25px;
+      color: white;
+      font-weight: 500;
+      font-size: 18px;
+      background-color: #1dbf73;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      &:hover {
+          background-color: #17a665;
+          /* Darker green on hover */
+        }
+    }
+
+    span{
+      color: red;
+      font-size: 12px;
+    }
+  }
+}
