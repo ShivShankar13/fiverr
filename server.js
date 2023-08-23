@@ -31,10 +31,6 @@ const corsOptions = {
 
 
 const app = express();
-
-app.use(cors(corsOptions));
-app.use(express.static(path.join(__dirname, "./client/dist")));
-
 app.get("*", function (_, res){
     res.sendFile(path.join(__dirname, "./client/dist/index.html" ), function (err) {
         console.log(err);
@@ -56,10 +52,9 @@ const connect = async () => {
     }
 };
 
-
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(cookieParser());
-
 app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);
 app.use("/api/gigs", gigRoute);
@@ -77,7 +72,12 @@ app.use((err, req, res, next) => {
 
 const PORT = process.env.PORT || 8800;
 
-app.listen(PORT, () => {
-    connect();
-    console.log("Backend server is running!");
-});
+// app.listen(PORT, () => {
+//     connect();
+//     console.log("Backend server is running!");
+// });
+connect().then(() => {
+    app.listen(PORT, () => {
+        console.log("listening for requests");
+    })
+})
