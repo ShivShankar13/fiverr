@@ -28,7 +28,9 @@ const corsOptions = {
     origin: process.env.FRONTEND_DOMAIN,
   credentials: true,
 };
+app.use(cors(corsOptions));
 
+app.use(express.static(path.join(__dirname, "./client/dist")));
 const app = express();
 app.get("*", function (_, res){
     res.sendFile(path.join(__dirname, "./client/dist/index.html" ), function (err) {
@@ -38,7 +40,7 @@ app.get("*", function (_, res){
     })
 })
 
-app.use(express.static(path.join(__dirname, "./client/dist")));
+
 
 mongoose.set("strictQuery", true);
 
@@ -51,10 +53,8 @@ const connect = async () => {
     }
 };
 
-app.use(cors(corsOptions));
 app.use(express.json());
 app.use(cookieParser());
-
 app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);
 app.use("/api/gigs", gigRoute);
