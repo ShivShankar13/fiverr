@@ -55,7 +55,7 @@ function MyGigs() {
                             <th>Sales</th>
                             <th>Action</th>
                         </tr>
-                        {data.map((gig) => (
+                        {data?.map((gig) => (
                             <tr key={gig._id}>
                                 <td>
                                     <img className="image" src={gig.cover} alt="" />

@@ -34,7 +34,7 @@ const Review = ({ review }) => {
             <div className="stars">
                 {Array(review.star)
                     .fill()
-                    .map((item, i) => (
+                    ?.map((item, i) => (
                         <img src="/img/star.png" alt="" key={i} />
                     ))}
                 <span>{review.star}</span>

@@ -61,7 +61,7 @@ function Gig() {
                                     <div className="stars">
                                         {Array(Math.round(data.totalStars / data.starNumber))
                                             .fill()
-                                            .map((item, i) => (
+                                            ?.map((item, i) => (
                                                 <img src="/img/star.png" alt="" key={i} />
                                             ))}
                                         <span>{Math.round(data.totalStars / data.starNumber)}</span>
@@ -70,7 +70,7 @@ function Gig() {
                             </div>
                         )}
                         <Slider slidesToShow={1} arrowsScroll={1} className="slider">
-                            {data.images.map((img) => (
+                            {data?.images?.map((img) => (
                                 <img key={img} src={img} alt="" />
                             ))}
                         </Slider>
@@ -91,7 +91,7 @@ function Gig() {
                                             <div className="stars">
                                                 {Array(Math.round(data.totalStars / data.starNumber))
                                                     .fill()
-                                                    .map((item, i) => (
+                                                    ?.map((item, i) => (
                                                         <img src="/img/star.png" alt="" key={i} />
                                                     ))}
                                                 <span>
@@ -149,7 +149,7 @@ function Gig() {
                             </div>
                         </div>
                         <div className="features">
-                            {data.features.map((feature) => (
+                            {data.features?.map((feature) => (
                                 <div className="item" key={feature}>
                                     <img src="/img/greencheck.png" alt="" />
                                     <span>{feature}</span>

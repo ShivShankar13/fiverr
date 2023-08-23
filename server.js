@@ -28,12 +28,13 @@ const corsOptions = {
     origin: process.env.FRONTEND_DOMAIN,
   credentials: true,
 };
-app.use(cors(corsOptions));
-app.use(express.json());
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, "./client/dist")));
+
 
 const app = express();
+
+app.use(cors(corsOptions));
+app.use(express.static(path.join(__dirname, "./client/dist")));
+
 app.get("*", function (_, res){
     res.sendFile(path.join(__dirname, "./client/dist/index.html" ), function (err) {
         console.log(err);
@@ -56,6 +57,8 @@ const connect = async () => {
 };
 
 
+app.use(express.json());
+app.use(cookieParser());
 
 app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);
